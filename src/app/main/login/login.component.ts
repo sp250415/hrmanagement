@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FuseConfigService } from '@fuse/services/config.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class LoginComponent{
   loginForm: FormGroup;
   
   constructor(private _formBuilder: FormBuilder,
-    private _fuseConfigService: FuseConfigService) { 
+    private _fuseConfigService: FuseConfigService,
+    private router: Router) { 
     this._fuseConfigService.config = {
       layout: {
           navbar   : {
@@ -50,7 +52,8 @@ onSubmit(login) {
   this.rememberMe(login,checked);
   if(this.loginForm.valid){
       console.log("Login Happens");
-      localStorage.setItem("login data",this.loginForm.value)
+    //   localStorage.setItem("login data",this.loginForm.value);
+      this.router.navigate(['/paclients']);
   }
 }
 

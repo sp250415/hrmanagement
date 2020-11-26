@@ -1,0 +1,106 @@
+<div id="Clientlist" class="page-layout carded fullwidth inner-scroll">
+    <div class="top-bg accent"></div>
+    <div class="center">
+        <div class="header accent" fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-sm="row"
+            fxLayoutAlign.gt-sm="space-between center">
+            <div class="logo mb-24 mb-md-0" fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon class="logo-icon s-32 mr-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+                    supervisor_account
+                </mat-icon>
+                <span class="logo-text h1" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                    Client List
+                </span>
+            </div>
+
+            <div class="search_class mx-32 mx-md-0">
+                <div class="search" fxFlex fxLayout="row" fxLayoutAlign="start center">
+                    <mat-icon>search</mat-icon>
+                    <input #filter [formControl]="searchValues" placeholder="Search">
+                </div>
+            </div>
+            <div fxLayoutGap="10px">
+
+                <button mat-raised-button class="add-client-button fuse-white mt-24 mt-md-0" (click)="addClients()">
+                    <span>Add Client</span>
+                </button>
+            </div>
+        </div>
+        <div class="content-card">
+
+            <div class="row table-display">
+                <div class="col-12 pad-20">
+                    <div class="spinner-wrapper" *ngIf="spinner">
+                        <div class="spinner">
+                            <div class="inner">
+                                <div class="gap"></div>
+                                <div class="left">
+                                    <div class="half-circle"></div>
+                                </div>
+                                <div class="right">
+                                    <div class="half-circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Table for client list -->
+                    <div class="example-table mat-elevation-z8">
+                        <table mat-table [dataSource]="dataSource" matSort class=" w-100-p">
+                            <ng-container matColumnDef="org_name">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="orgNameTh">Organization
+                                    Name</th>
+                                <td mat-cell *matCellDef="let element"> {{element.orgname}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="org_code">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="orgCodeTh"> Organization
+                                    Code </th>
+                                <td mat-cell *matCellDef="let element"> {{element.orgcode}}</td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="email">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="emailTh"> Email </th>
+                                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="expiry">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="expTh"> Expiry Date </th>
+                                <td mat-cell *matCellDef="let element"> {{element.expiry_date}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="active_status">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="activeTh"> Active Status
+                                </th>
+                                <td mat-cell *matCellDef="let element"> {{element.is_active}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="subscription">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="subTh"> Subscription </th>
+                                <td mat-cell *matCellDef="let element"> {{element.subscriptionType}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="action">
+                                <th mat-header-cell *matHeaderCellDef class="actionTh">ACTION</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button matTooltip="Client Edit" mat-raised-button color="accent" type="button"
+                                        (click)="editClient(element)">
+                                        <mat-icon>edit</mat-icon>
+                                    </button>
+                                </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                        </table>
+                        <div class="noRecords">
+                            <p class="norcrdCenter" [ngClass]="{'hideNodata': !(dataSource.data.length == 0) }">No
+                                Records Found</p>
+                        </div>
+                        <mat-paginator class="mat-paginator-sticky" [pageSizeOptions]="[10, 20]" showFirstLastButtons>
+                        </mat-paginator>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

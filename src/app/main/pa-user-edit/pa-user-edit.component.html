@@ -1,0 +1,42 @@
+<div>
+    <h1 align="center"><b>Edit User</b></h1>
+    <form name="userForm" [formGroup]="userForm">
+        <mat-form-field appearance="outline" floatLabel="always" class="w-90-p">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username" name="username" formControlName="username" type="text" required
+                autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always" class="w-90-p">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="Password" name="password" formControlName="password" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always" class="w-90-p">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" name="email" formControlName="email" required>
+        </mat-form-field>
+
+
+        <div align="center">
+            <div class="spinner-wrapper" *ngIf="spinner">
+                <div class="spinner">
+                    <div class="inner">
+                        <div class="gap"></div>
+                        <div class="left">
+                            <div class="half-circle"></div>
+                        </div>
+                        <div class="right">
+                            <div class="half-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button mat-raised-button color="accent" [disabled]="userForm.invalid" (click)="editUser()">Update</button>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <span>
+                <button mat-raised-button color="accent" (click)="back()">Cancel</button>
+            </span>
+        </div>
+    </form>
+</div>

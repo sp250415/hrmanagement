@@ -18,8 +18,19 @@ import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
 import { SampleModule } from 'app/main/sample/sample.module';
 import { LoginModule } from './main/login/login.module';
+import { PaClientListModule } from './main/pa-client-list/pa-client-list.module';
 import { CommonModule } from '@angular/common';
+import { PaUsersModule } from './main/pa-users/pa-users.module';
+import { ManageSubscriptionModule } from './main/manage-subscription/manage-subscription.module';
+import { AddClientsComponent } from './main/add-clients/add-clients.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatRippleModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PaUserEditComponent } from './main/pa-user-edit/pa-user-edit.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
+ManageSubscriptionModule
 const appRoutes: Routes = [
     {
         path      : '**',
@@ -30,8 +41,15 @@ const appRoutes: Routes = [
 @NgModule({
     declarations: [
         AppComponent,
+        AddClientsComponent,
+        PaUserEditComponent,
     ],
     imports     : [
+        MatButtonModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatRippleModule,
         BrowserModule,
         CommonModule,
         BrowserAnimationsModule,
@@ -42,6 +60,7 @@ const appRoutes: Routes = [
 
         // Material moment date module
         MatMomentDateModule,
+        MatDatepickerModule,
 
         // Material
         MatButtonModule,
@@ -58,6 +77,13 @@ const appRoutes: Routes = [
         LayoutModule,
         LoginModule,
         SampleModule,
+        PaClientListModule,
+        PaUsersModule,
+        ManageSubscriptionModule
+    ],
+    entryComponents : [
+        AddClientsComponent,
+        PaUserEditComponent
     ],
     bootstrap   : [
         AppComponent
