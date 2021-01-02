@@ -3,15 +3,14 @@
 fuse-sidebar {
     display: flex;
     flex-direction: column;
-    flex: 1 0 auto;
     position: absolute;
     top: 0;
     bottom: 0;
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    width: 280px;
-    min-width: 280px;
+    width: 230px;
+    // min-width: 280px;
     max-width: 280px;
     z-index: 1000;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.35);

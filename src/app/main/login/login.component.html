@@ -1,0 +1,66 @@
+<div class="container-fluid bgImg" >
+  <div class="middle-box text-center loginscreen animated fadeInDown">
+    <div >
+      <div>
+        <img src="assets/agBlue.png" class="center image">
+      </div>
+      
+      <div class="headDiv">
+        <h3 class="heading">Welcome to Accounts Guru</h3>
+        <form class="bgInput" [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
+                  
+          <mat-form-field appearance="standard">
+              <mat-label class="bgInput" >Username</mat-label>
+              <input matInput formControlName="username">
+              <mat-icon matSuffix>account_circle</mat-icon>
+              <mat-error *ngIf="loginForm.get('username').hasError('required')">
+                Username is required
+              </mat-error>
+              <mat-error
+                  *ngIf="!loginForm.get('username').hasError('required') &&
+                          loginForm.get('username').hasError('username')">
+                  Please enter a valid username
+              </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="standard">
+              <mat-label class="bgInput">Password</mat-label>
+              <input class="bgInput" matInput type="password" formControlName="password">
+              <mat-icon matSuffix>vpn_key</mat-icon>
+              <mat-error>
+                  Password is required
+              </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="standard">
+              <mat-label class="bgInput">Organization Name</mat-label>
+              <input maxlength="3" class="bgInput" matInput formControlName="orgName">
+              <mat-icon matSuffix>business</mat-icon>
+              <mat-error *ngIf="loginForm.get('orgName').hasError('required')">
+                  Organization Name is required
+              </mat-error>
+              <mat-error *ngIf="!loginForm.get('orgName').hasError('required') && loginForm.get('orgName').hasError('orgName')">
+                  Please enter a valid Organization Name
+              </mat-error>
+          </mat-form-field>
+  
+          <div class="remember-forgot-password" fxLayout="row" fxLayout.xs="column"
+               fxLayoutAlign="space-between center">
+              <mat-checkbox class="remember-me bgInput" aria-label="Remember Me" formControlName="remember"  >
+                  Remember Me
+              </mat-checkbox>
+  
+          </div>
+          <button mat-raised-button color="accent" type="submit" class="submit-button"  aria-label="LOGIN">
+                  LOGIN
+              </button>
+
+        <a><small class="routeStyle" (click)="routeToForgot()" tabindex="6">Forgot password?</small></a>
+
+      </form>
+    </div>
+      <p class="m-t" class="bgInput"> <small>Accounts Guru &copy; 2020</small> </p>
+    </div>
+  </div>
+  </div>
+  

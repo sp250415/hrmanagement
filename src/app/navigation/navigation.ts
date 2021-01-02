@@ -2,25 +2,53 @@ import { FuseNavigation } from '@fuse/types';
 
 export const navigation: FuseNavigation[] = [
     {
-        id       : 'applications',
-        title    : 'Applications',
-        translate: 'NAV.APPLICATIONS',
-        type     : 'group',
-        children : [
+        id: 'clientlist',
+        title: 'Pa Clients',
+        icon: 'admin_panel_settings',
+        type: 'item',
+        url: '/paclients'
+    },
+    {
+        id: 'pausers',
+        title: 'Users',
+        type: 'item',
+        icon: 'group_add',
+        url: '/pausers',
+    },
+    {
+        id: 'subscription',
+        title: 'Subscription',
+        type: 'item',
+        icon: 'settings',
+        url: '/subscription',
+    },
+    {
+        id: 'organizationprofile',
+        title: 'Organization Profile',
+        type: 'item',
+        icon: 'settings',
+        url: '/org-profile',
+    },
+    {
+        id: 'leavemanagement',
+        title: 'Leave Management',
+        type: 'collapsable',
+        icon: 'dashboard',
+        children: [
             {
-                id       : 'sample',
-                title    : 'Sample',
-                translate: 'NAV.SAMPLE.TITLE',
-                type     : 'item',
-                icon     : 'email',
-                url      : '/sample',
-                badge    : {
-                    title    : '25',
-                    translate: 'NAV.SAMPLE.BADGE',
-                    bg       : '#F44336',
-                    fg       : '#FFFFFF'
-                }
-            }
+                id: 'holidays',
+                title: 'Holidays',
+                icon: 'web',
+                type: 'item',
+                url: '/holidays',
+            },
+            {
+                id: 'faq',
+                title: 'FAQ',
+                icon: 'group',
+                type: 'item',
+                url: '/faq',
+            },
         ]
     }
 ];
