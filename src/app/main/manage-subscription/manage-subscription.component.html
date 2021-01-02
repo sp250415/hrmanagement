@@ -1,0 +1,65 @@
+<div id="Clientlist" class="page-layout carded fullwidth inner-scroll">
+    <div class="top-bg accent"></div>
+    <div class="center">
+        <div class="header accent" fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-sm="row"
+            fxLayoutAlign.gt-sm="space-between center">
+            <div class="logo mb-24 mb-md-0" fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon class="logo-icon s-32 mr-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+                    supervisor_account
+                </mat-icon>
+                <span class="logo-text h1" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                    Subscription Users Count
+                </span>
+            </div>
+        </div>
+        <div class="content-card contentP">
+            <div class="row table-display">
+                <div class="col-12 pad-20">
+                    <form name="clientForm" [formGroup]="usersCountForm">
+                        <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="50">
+                            <div fxLayoutAlign="start center">
+                                <span class="mat-subheading-2 phone">Basic:</span>
+                                <mat-form-field appearance="outline" class="createbill space phoneinput">
+                                    <mat-label></mat-label>
+                                    <input matInput formControlName="basic" type="number" name="basic" class="txt_box">
+                                </mat-form-field>
+                            </div>
+
+                            <div fxLayoutAlign="start center">
+                                <span class="mat-subheading-2 phone">Premium:</span>
+                                <mat-form-field appearance="outline" class="createbill phoneinput">
+                                    <mat-label></mat-label>
+                                    <input matInput name="premium" formControlName="premium" type="number"
+                                        class="txt_box">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="50">
+                            <div fxLayoutAlign="start center">
+                                <span class="mat-subheading-2 phone">Standard:</span>
+                                <mat-form-field appearance="outline" class="createbill phoneinput">
+                                    <mat-label></mat-label>
+                                    <input matInput name="standard" formControlName="standard" type="number"
+                                        class="txt_box">
+                                </mat-form-field>
+                            </div>
+
+                            <div fxLayoutAlign="start center">
+                                <span class="mat-subheading-2 phone">Platinum:</span>
+                                <mat-form-field appearance="outline" class="createbill space phoneinput plat">
+                                    <mat-label></mat-label>
+                                    <input matInput name="platinum" formControlName="platinum" type="number"
+                                        class="txt_box">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </form>
+                    <button class="saveBtn" mat-raised-button color="accent" [disabled]="usersCountForm.invalid"
+                        (click)="update()">SAVE</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

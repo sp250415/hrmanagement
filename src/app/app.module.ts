@@ -17,20 +17,42 @@ import { fuseConfig } from 'app/fuse-config';
 import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
 import { SampleModule } from 'app/main/sample/sample.module';
+import { LoginModule } from './main/login/login.module';
+import { PaClientListModule } from './main/pa-client-list/pa-client-list.module';
+import { CommonModule } from '@angular/common';
+import { PaUsersModule } from './main/pa-users/pa-users.module';
+import { ManageSubscriptionModule } from './main/manage-subscription/manage-subscription.module';
+import { AddClientsComponent } from './main/add-clients/add-clients.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatRippleModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PaUserEditComponent } from './main/pa-user-edit/pa-user-edit.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { OrganizationProfileModule } from './main/org-profile/org-profile.module'
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 const appRoutes: Routes = [
     {
         path      : '**',
-        redirectTo: 'sample'
+        redirectTo: 'login'
     }
 ];
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        AddClientsComponent,
+        PaUserEditComponent,
     ],
     imports     : [
+        MatButtonModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatRippleModule,
         BrowserModule,
+        CommonModule,
         BrowserAnimationsModule,
         HttpClientModule,
         RouterModule.forRoot(appRoutes),
@@ -39,10 +61,12 @@ const appRoutes: Routes = [
 
         // Material moment date module
         MatMomentDateModule,
+        MatDatepickerModule,
 
         // Material
         MatButtonModule,
         MatIconModule,
+        MaterialFileInputModule,
 
         // Fuse modules
         FuseModule.forRoot(fuseConfig),
@@ -53,7 +77,16 @@ const appRoutes: Routes = [
 
         // App modules
         LayoutModule,
-        SampleModule
+        LoginModule,
+        SampleModule,
+        PaClientListModule,
+        PaUsersModule,
+        ManageSubscriptionModule,
+        OrganizationProfileModule
+    ],
+    entryComponents : [
+        AddClientsComponent,
+        PaUserEditComponent
     ],
     bootstrap   : [
         AppComponent

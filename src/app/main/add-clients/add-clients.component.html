@@ -1,0 +1,96 @@
+<div>
+    <h1 align="center"><b>Create Client</b></h1>
+    <form name="clientForm" [formGroup]="clientForm">
+        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+            <mat-label>Organization Name</mat-label>
+            <input matInput placeholder="Organization Name" name="orgName" formControlName="orgName" type="text"
+                required autocomplete="off">
+            <mat-error *ngIf="clientForm.controls['orgName'].errors?.orgNameExist">
+                Organization Already Exist !!!!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always" class="w-25-p">
+            <mat-label>Organization Code</mat-label>
+            <input matInput maxlength="3" placeholder="Organization Code" name="orgCode" formControlName="orgCode"
+                required>
+        </mat-form-field>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <span>
+            <mat-form-field appearance="outline" floatLabel="always" class="w-50-p">
+                <mat-label>PAN Number</mat-label>
+                <input matInput placeholder="PAN" name="pan" formControlName="pan">
+            </mat-form-field>
+        </span>
+
+        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" name="email" formControlName="email" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+            <mat-label>Address</mat-label>
+            <address></address>
+            <input matInput placeholder="Address" name="address" formControlName="address" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always" class="w-45-p">
+            <mat-label>Plan</mat-label>
+            <mat-select placeholder="Select Plan" formControlName="plan">
+                <mat-option [value]="0">
+                    BASIC
+                </mat-option>
+                <mat-option [value]="1">
+                    STANDARD
+                </mat-option>
+                <mat-option [value]="2">
+                    PREMIUM
+                </mat-option>
+                <mat-option [value]="3">
+                    PLATINUM
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <span>
+            <mat-form-field appearance="outline" floatLabel="always" class="w-45-p">
+                <mat-label>Total Users</mat-label>
+                <input matInput placeholder="Users" name="users" formControlName="users" type="number" required>
+            </mat-form-field>
+        </span>
+
+        <mat-form-field>
+            <input matInput [matDatepicker]="toPickers" formControlName="date" placeholder="Select the Date">
+            <mat-datepicker-toggle matSuffix [for]="toPickers"></mat-datepicker-toggle>
+            <mat-datepicker #toPickers></mat-datepicker>
+        </mat-form-field>
+
+
+        <div align="center">
+            <div class="spinner-wrapper" *ngIf="spinner">
+                <div class="spinner">
+                    <div class="inner">
+                        <div class="gap"></div>
+                        <div class="left">
+                            <div class="half-circle"></div>
+                        </div>
+                        <div class="right">
+                            <div class="half-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button mat-raised-button color="accent" [disabled]="clientForm.invalid" (click)="addClient()">ADD</button>
+        </div>
+    </form>
+</div>

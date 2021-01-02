@@ -1,0 +1,270 @@
+<div id="organizationprofile" class="page-layout carded fullwidth inner-scroll">
+    <div class="top-bg accent"></div>
+    <div class="center">
+        <div class="header accent" fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-sm="row"
+            fxLayoutAlign.gt-sm="space-between center">
+            <div class="logo mb-24 mb-md-0" fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon class="logo-icon s-32 mr-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+                    supervisor_account
+                </mat-icon>
+                <span class="logo-text h1" *ngIf="initial" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                    Organization Profile
+                </span>
+                <span class="logo-text h1" *ngIf="final" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                    Organization Details
+                </span>
+            </div>
+        </div>
+        <div class="content-card contentP" style="overflow: auto;">
+            <div class="row table-display">
+                <div class="col-12 pad-20" *ngIf="initial">
+                    <form name="orgForm" [formGroup]="orgForm">
+                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                            <mat-label>Organization Name</mat-label>
+                            <input matInput placeholder="Organization Name" name="orgName" formControlName="orgName"
+                                type="text" required autocomplete="off">
+                            <mat-error *ngIf="orgForm.controls['orgName'].errors?.orgNameExist">
+                                Organization Already Exist !!!!
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                            <mat-label>Organization Code</mat-label>
+                            <input matInput maxlength="3" placeholder="Organization Code" name="orgCode"
+                                formControlName="orgCode" required>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                            <mat-label>Country</mat-label>
+                            <mat-select placeholder="Select Country" formControlName="country">
+                                <mat-option [value]="0">
+                                    India
+                                </mat-option>
+                                <mat-option [value]="1">
+                                    Switzerland
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                            <mat-label>Default Currency</mat-label>
+                            <mat-select placeholder="Select Country" formControlName="country">
+                                <mat-option [value]="0">
+                                    INR
+                                </mat-option>
+                                <mat-option [value]="1">
+                                    CHF
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                            <mat-label>Tax Name</mat-label>
+                            <input matInput placeholder="TAX" name="tax" formControlName="tax">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                            <mat-label>PAN Number</mat-label>
+                            <input matInput placeholder="PAN" name="pan" formControlName="pan">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" floatLabel="always" class="w-75-p">
+                            <mat-label>Company Logo</mat-label>
+                            <ngx-mat-file-input formControlName="removableInput" placeholder="Upload Logo">
+                            </ngx-mat-file-input>
+                            <mat-hint style="color: green;">Preferred dimension Width: 1050, Height: 100</mat-hint>
+                        </mat-form-field>
+
+
+                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                            <mat-label>CIN Number</mat-label>
+                            <input matInput placeholder="CIN" name="cin" formControlName="cin" required>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                            <mat-label>Has Registered GST</mat-label>
+                            <mat-select placeholder="Select an option" formControlName="hasgst">
+                                <mat-option [value]="0">
+                                    Yes
+                                </mat-option>
+                                <mat-option [value]="1">
+                                    No
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+
+                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                            <mat-label>Product Type</mat-label>
+                            <mat-select placeholder="Select Country" formControlName="type">
+                                <mat-option [value]="0">
+                                    Goods
+                                </mat-option>
+                                <mat-option [value]="1">
+                                    Services
+                                </mat-option>
+                                <mat-option [value]="2">
+                                    Both
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <button style="float: right;" mat-raised-button color="accent" (click)="next()">Next</button>
+                    </form>
+                </div>
+
+                <!-- Next Page -->
+
+                <div class="col-12 pad-20" *ngIf="final">
+                    <form name="orgForm" [formGroup]="orgForm">
+                        <h3>Location Address</h3>
+                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                            <mat-label>H.O Address</mat-label>
+                            <input matInput placeholder="H.O Address" name="hoaddress" formControlName="hoaddress">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                            <mat-label>State</mat-label>
+                            <mat-select placeholder="Select State" formControlName="state">
+                                <mat-option [value]="0">
+                                    India
+                                </mat-option>
+                                <mat-option [value]="1">
+                                    Switzerland
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <!-- COntact details -->
+                        <h3>Contact - Details</h3>
+                        <mat-form-field appearance="outline" floatLabel="always" class="w-45-p">
+                            <mat-label>Mobile</mat-label>
+                            <input matInput placeholder="Mobile" name="mobile" formControlName="mobile">
+                        </mat-form-field>
+                        &nbsp;&nbsp;&nbsp;
+                        <span>
+                            <mat-form-field appearance="outline" floatLabel="always" class="w-45-p">
+                                <mat-label>Telephone</mat-label>
+                                <input matInput placeholder="Telephone" name="telephone" formControlName="telephone">
+                            </mat-form-field>
+                        </span>
+
+                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                            <mat-label>Email</mat-label>
+                            <input matInput placeholder="Email" name="email" formControlName="email">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                            <mat-label>Website</mat-label>
+                            <input matInput placeholder="Website" name="website" formControlName="website">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                            <mat-label>Fax</mat-label>
+                            <input matInput placeholder="Fax Number" name="fax" formControlName="fax">
+                        </mat-form-field>
+                        <hr>
+                        <div style="font-size: 20px;"> Branch Office Address
+                            <span><button style="float: right;bottom: 5px;" mat-raised-button color="accent"
+                                    (click)="addBranch()">Add Branch Office</button></span>
+                        </div> &nbsp;&nbsp;&nbsp;
+                        <div *ngFor="let item of branchOffice; let i = index;">
+                            <h3>Address {{i+1}}</h3>
+                            <div style="border: solid 2px darkslategray;">
+                                <div>
+                                    <mat-icon (click)="removeBranch(i)" style="float: right;cursor: pointer;">
+                                        highlight_off</mat-icon>
+                                </div>
+                                <div style="margin-top: 22px;">&nbsp;&nbsp;
+                                    <mat-form-field appearance="outline" floatLabel="always" class="w-30-p">
+                                        <mat-label>Branch Name</mat-label>
+                                        <input matInput placeholder="Fax Number" name="fax">
+                                    </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span>
+                                        <mat-form-field appearance="outline" floatLabel="always" class="w-30-p">
+                                            <mat-label>Branch Address</mat-label>
+                                            <input matInput placeholder="Fax Number" name="fax">
+                                        </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </span>
+                                    <span>
+                                        <mat-form-field appearance="outline" floatLabel="always" class="w-30-p">
+                                            <mat-label>Branch State</mat-label>
+                                            <input matInput placeholder="Fax Number" name="fax">
+                                        </mat-form-field>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <h3>Signature</h3>
+                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                            <mat-label>Signature</mat-label>
+                            <textarea matInput name="sign" formControlName="sign"
+                                placeholder="Type your Signature here..."></textarea>
+                        </mat-form-field>
+                        <hr>
+                        <div style="font-size: 20px;"> Bank Details
+                            <span><button style="float: right;bottom: 5px;" mat-raised-button color="accent"
+                                    (click)="addBank()">Add Bank Details</button></span>
+                        </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div *ngFor="let item of bankDetails; let i = index;">
+                            <h3>Bank Details {{i+1}}</h3>
+                            <div style="border: solid 2px darkslategray;">
+                                <div>
+                                    <mat-icon (click)="removeBank(i)" style="float: right;cursor: pointer;">
+                                        highlight_off</mat-icon>
+                                </div>
+                                <div style="margin-top: 22px;">&nbsp;&nbsp;
+                                    <mat-form-field appearance="outline" floatLabel="always" class="w-45-p">
+                                        <mat-label>B.O Name</mat-label>
+                                        <input matInput placeholder="B.O Name" name="boname">
+                                    </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span>
+                                        <mat-form-field appearance="outline" floatLabel="always" class="w-45-p">
+                                            <mat-label>Branch Name</mat-label>
+                                            <input matInput placeholder="Branch Name" name="branchname">
+                                        </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </span>
+                                    <div>
+                                        &nbsp;&nbsp;
+                                        <mat-form-field appearance="outline" floatLabel="always" class="w-60-p">
+                                            <mat-label>Branch Address</mat-label>
+                                            <textarea matInput placeholder="Branch Address"
+                                                name="branchaddress"></textarea>
+                                        </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span>
+                                            <mat-form-field appearance="outline" floatLabel="always" class="w-35-p">
+                                                <mat-label>Account Number</mat-label>
+                                                <input matInput placeholder="Account Number" name="accountnumber">
+                                            </mat-form-field>
+                                        </span>
+                                    </div>
+
+                                    <div>
+                                        &nbsp;&nbsp;
+                                        <mat-form-field appearance="outline" floatLabel="always" class="w-45-p">
+                                            <mat-label>IFSC Code</mat-label>
+                                            <input matInput placeholder="IFSC Code" name="ifsccode">
+                                        </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span>
+                                            <mat-form-field appearance="outline" floatLabel="always" class="w-45-p">
+                                                <mat-label>Swift Code</mat-label>
+                                                <input matInput placeholder="Swift Code" name="swiftcode">
+                                            </mat-form-field>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div>
+                            <button style="float: right;right: 20px;" mat-raised-button color="accent"
+                                (click)="save()">Save</button>
+                            <button style="float: right;" mat-raised-button color="accent"
+                                (click)="back()">Back</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
