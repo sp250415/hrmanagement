@@ -7,7 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { fuseAnimations } from '@fuse/animations';
 import { FuseConfigService } from '@fuse/services/config.service';
 import { PaUserEditComponent } from '../pa-user-edit/pa-user-edit.component';
-import swal from 'sweetalert2';
+// import swal from 'sweetalert2';
 
 
 @Component({
@@ -76,11 +76,11 @@ export class PaUsersComponent implements OnInit {
     }
 
     deleteUser(value) {
-        swal.fire(
-            'Deleted!',
-            'User Deleted',
-            'success'
-        );
+        // swal.fire(
+        //     'Deleted!',
+        //     'User Deleted',
+        //     'success'
+        // );
     }
 
 

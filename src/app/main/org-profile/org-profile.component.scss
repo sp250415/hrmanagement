@@ -1,0 +1,313 @@
+@import "src/@fuse/scss/fuse";
+
+#clients {
+
+    .top-bg {
+
+        @include media-breakpoint('lt-md') {
+            height: 256px;
+        }
+    }
+
+    >.center {
+
+        >.header {
+
+            .search-wrapper {
+                width: 100%;
+                max-width: 480px;
+                border-radius: 28px;
+                overflow: hidden;
+                @include mat-elevation(1);
+
+                @include media-breakpoint('xs') {
+                    width: 100%;
+                }
+
+                .search {
+                    width: 100%;
+                    height: 48px;
+                    line-height: 48px;
+                    padding: 0 18px;
+
+                    input {
+                        width: 100%;
+                        height: 48px;
+                        min-height: 48px;
+                        max-height: 48px;
+                        padding: 0 16px;
+                        border: none;
+                        outline: none;
+                    }
+                }
+            }
+
+            @include media-breakpoint('lt-md') {
+                padding: 8px 0;
+                height: 192px !important;
+                min-height: 192px !important;
+                max-height: 192px !important;
+            }
+        }
+    }
+}
+
+:host ::ng-deep .createbill .mat-form-field-flex>.mat-form-field-infix {
+    padding: 5px 0px !important;
+}
+
+:host ::ng-deep .createbill .mat-form-field-wrapper {
+    padding-bottom: 0;
+}
+
+:host ::ng-deep .createbill .mat-h2,
+.mat-title,
+.mat-typography h2 {
+    margin: auto !important;
+}
+
+.phoneinput {
+    margin-left: 5%;
+}
+
+.phone {
+    margin-left: 2%;
+}
+
+.plat {
+    padding-left: 3px !important;
+}
+
+.txt_box::-webkit-inner-spin-button,
+.txt_box::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.hideNodata {
+    display: none;
+}
+
+.saveBtn {
+    float: left;
+    margin-left: 37%;
+    margin-top: 2%;
+    font-size: 15px;
+    padding: 2px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.example-table {
+    position: relative;
+    max-height: 500px !important;
+    min-height: 500px !important;
+    overflow: auto;
+}
+
+.mat-paginator-sticky {
+    bottom: 0px;
+    position: sticky;
+    z-index: 10;
+}
+
+.page-layout.carded.fullwidth>.center>.header {
+    height: 55px !important;
+    min-height: 55px !important;
+    max-height: 54px !important;
+}
+
+.page-layout.carded>.top-bg {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 140px !important;
+}
+
+.search_class {
+    background: #fff;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 28px;
+    overflow: hidden;
+    color: black;
+    @include mat-elevation(1);
+
+    @include media-breakpoint('xs') {
+        width: 100%;
+    }
+
+    .search {
+        width: 100%;
+        height: 48px;
+        line-height: 48px;
+        padding: 0 18px;
+
+        input {
+            width: 100%;
+            height: 48px;
+            min-height: 48px;
+            max-height: 48px;
+            padding: 0 16px;
+            border: none;
+            outline: none;
+            font-family: muli;
+        }
+    }
+
+
+}
+
+.contentP {
+    padding: 35px;
+}
+
+.spinner-wrapper {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 100px;
+    height: 100px;
+}
+
+.spinner-wrapper .spinner {
+    position: absolute;
+    overflow: hidden;
+    left: 50%;
+    margin-left: -50px;
+    animation: outer-rotate 2.91667s linear infinite;
+}
+
+.spinner-wrapper .spinner .inner {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    animation: sporadic-rotate 5.25s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+}
+
+.spinner-wrapper .spinner .inner .gap {
+    position: absolute;
+    left: 49px;
+    right: 49px;
+    top: 0;
+    bottom: 0;
+    border-top: 10px solid;
+    box-sizing: border-box;
+}
+
+.spinner-wrapper .spinner .inner .left,
+.spinner-wrapper .spinner .inner .right {
+    position: absolute;
+    top: 0;
+    height: 100px;
+    width: 50px;
+    overflow: hidden;
+}
+
+.spinner-wrapper .spinner .inner .left .half-circle,
+.spinner-wrapper .spinner .inner .right .half-circle {
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    border: 10px solid #4285F4;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+}
+
+.spinner-wrapper .spinner .inner .left {
+    left: 0;
+}
+
+.spinner-wrapper .spinner .inner .left .half-circle {
+    left: 0;
+    border-right-color: transparent;
+    animation: left-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+    -webkit-animation: left-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+}
+
+.spinner-wrapper .spinner .inner .right {
+    right: 0;
+}
+
+.spinner-wrapper .spinner .inner .right .half-circle {
+    right: 0;
+    border-left-color: transparent;
+    animation: right-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+    -webkit-animation: right-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+}
+
+.space {
+    padding-left: 25px;
+}
+
+@keyframes outer-rotate {
+    0% {
+        transform: rotate(0deg) scale(0.5);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(0.5);
+    }
+}
+
+@keyframes left-wobble {
+
+    0%,
+    100% {
+        transform: rotate(130deg);
+    }
+
+    50% {
+        transform: rotate(-5deg);
+    }
+}
+
+@keyframes right-wobble {
+
+    0%,
+    100% {
+        transform: rotate(-130deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes sporadic-rotate {
+    12.5% {
+        transform: rotate(135deg);
+    }
+
+    25% {
+        transform: rotate(270deg);
+    }
+
+    37.5% {
+        transform: rotate(405deg);
+    }
+
+    50% {
+        transform: rotate(540deg);
+    }
+
+    62.5% {
+        transform: rotate(675deg);
+    }
+
+    75% {
+        transform: rotate(810deg);
+    }
+
+    87.5% {
+        transform: rotate(945deg);
+    }
+
+    100% {
+        transform: rotate(1080deg);
+    }
+}

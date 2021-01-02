@@ -21,5 +21,12 @@ export const navigation: FuseNavigation[] = [
         type: 'item',
         icon: 'settings',
         url: '/subscription',
+    },
+    {
+        id: 'organizationprofile',
+        title: 'Organization Profile',
+        type: 'item',
+        icon: 'settings',
+        url: '/org-profile',
     }
 ];

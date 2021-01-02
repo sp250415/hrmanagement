@@ -29,13 +29,16 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
+
 
 @NgModule({
     imports  : [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
+        MaterialFileInputModule,
 
         FlexLayoutModule,
 
