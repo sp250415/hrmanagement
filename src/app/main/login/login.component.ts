@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FuseConfigService } from '@fuse/services/config.service';
+import { LoginService } from 'app/services/login.service'
 
 @Component({
   selector: 'login',
@@ -11,10 +12,14 @@ import { FuseConfigService } from '@fuse/services/config.service';
 export class LoginComponent{
 
   loginForm: FormGroup;
+  orgName: string;
+  username: string;
+  password: string;
   
   constructor(private _formBuilder: FormBuilder,
     private _fuseConfigService: FuseConfigService,
-    private router: Router) { 
+    private router: Router,
+    private loginService: LoginService) { 
     this._fuseConfigService.config = {
       layout: {
           navbar   : {
@@ -46,16 +51,30 @@ export class LoginComponent{
   });
 }
 
-onSubmit(login) {
-  console.log(this.loginForm.value)
-  var checked = this.loginForm.get('remember').value
-  this.rememberMe(login,checked);
-  if(this.loginForm.valid){
-      console.log("Login Happens");
-    //   localStorage.setItem("login data",this.loginForm.value);
-      this.router.navigate(['/paclients']);
+// onSubmit(login) {
+//   console.log(this.loginForm.value)
+//   var checked = this.loginForm.get('remember').value
+//   this.rememberMe(login,checked);
+//   if(this.loginForm.valid){
+//       console.log("Login Happens");
+//     //   localStorage.setItem("login data",this.loginForm.value);
+//       this.router.navigate(['/paclients']);
+//   }
+//  }
+
+onSubmit() {
+    //  this.router.navigateByUrl('calendar');
+     this.loginService.login(this.loginForm.value).subscribe( (response:any) => {
+      if(response.isUserLoggedIn){
+        console.log('logging in');
+        // this.router.navigateByUrl('/calendar')
+      }else{
+        // Swal.fire('Error!', response.error_message, 'warning');
+        console.log('error logging in');
+      }
+    })
   }
-}
+
 
 rememberMe(login, checked) {
   if (checked == true) {

@@ -29,8 +29,11 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PaUserEditComponent } from './main/pa-user-edit/pa-user-edit.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { OrganizationProfileModule } from './main/org-profile/org-profile.module'
+import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { HolidayModule } from './main/holidays/holidays.module';
+import { FaqModule } from './main/faq/faq.module';
 
-ManageSubscriptionModule
 const appRoutes: Routes = [
     {
         path      : '**',
@@ -65,6 +68,7 @@ const appRoutes: Routes = [
         // Material
         MatButtonModule,
         MatIconModule,
+        MaterialFileInputModule,
 
         // Fuse modules
         FuseModule.forRoot(fuseConfig),
@@ -79,7 +83,10 @@ const appRoutes: Routes = [
         SampleModule,
         PaClientListModule,
         PaUsersModule,
-        ManageSubscriptionModule
+        ManageSubscriptionModule,
+        OrganizationProfileModule,
+        HolidayModule,
+        FaqModule,
     ],
     entryComponents : [
         AddClientsComponent,

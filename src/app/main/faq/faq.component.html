@@ -1,0 +1,29 @@
+<div class="row table-display" style="background-color: white;width: 100%">
+    <div class="uiAlign">
+        <b>Frequently Asked Questions</b>
+    </div>
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span [ngClass]="panelOpenState ? 'coloredLabelUi' : 'labelUi'">. What is Accounts Guru?</span>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>Accounts Guru is the process of recording financial transactions pertaining to a business. ...
+                The financial statements used in accounting are a concise summary of financial transactions over an
+                accounting
+                period, summarizing a company's operations, financial position and cash flows.</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span [ngClass]="panelOpenState ? 'coloredLabelUi' : 'labelUi'">. What is Accounts Guru?</span>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>Accounts Guru is the process of recording financial transactions pertaining to a business. ...
+                The financial statements used in accounting are a concise summary of financial transactions over an
+                accounting
+                period, summarizing a company's operations, financial position and cash flows.</p>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

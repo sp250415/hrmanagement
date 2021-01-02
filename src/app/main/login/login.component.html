@@ -7,7 +7,7 @@
       
       <div class="headDiv">
         <h3 class="heading">Welcome to Accounts Guru</h3>
-        <form class="bgInput" [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit(loginForm.value)">
+        <form class="bgInput" [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
                   
           <mat-form-field appearance="standard">
               <mat-label class="bgInput" >Username</mat-label>
@@ -34,7 +34,7 @@
   
           <mat-form-field appearance="standard">
               <mat-label class="bgInput">Organization Name</mat-label>
-              <input class="bgInput" matInput formControlName="orgName">
+              <input maxlength="3" class="bgInput" matInput formControlName="orgName">
               <mat-icon matSuffix>business</mat-icon>
               <mat-error *ngIf="loginForm.get('orgName').hasError('required')">
                   Organization Name is required

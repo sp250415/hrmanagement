@@ -21,5 +21,34 @@ export const navigation: FuseNavigation[] = [
         type: 'item',
         icon: 'settings',
         url: '/subscription',
+    },
+    {
+        id: 'organizationprofile',
+        title: 'Organization Profile',
+        type: 'item',
+        icon: 'settings',
+        url: '/org-profile',
+    },
+    {
+        id: 'leavemanagement',
+        title: 'Leave Management',
+        type: 'collapsable',
+        icon: 'dashboard',
+        children: [
+            {
+                id: 'holidays',
+                title: 'Holidays',
+                icon: 'web',
+                type: 'item',
+                url: '/holidays',
+            },
+            {
+                id: 'faq',
+                title: 'FAQ',
+                icon: 'group',
+                type: 'item',
+                url: '/faq',
+            },
+        ]
     }
 ];
