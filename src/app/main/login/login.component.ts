@@ -15,6 +15,8 @@ export class LoginComponent{
   orgName: string;
   username: string;
   password: string;
+  dropdown : Boolean = false;
+  none : Boolean = false;
   
   constructor(private _formBuilder: FormBuilder,
     private _fuseConfigService: FuseConfigService,
@@ -47,33 +49,34 @@ export class LoginComponent{
       username   : ['', [Validators.required]],
       password: ['', Validators.required],
       remember: [''],
-      orgName:['', Validators.required]
+      orgName:['', Validators.required],
+      radio: ['']
   });
 }
 
-// onSubmit(login) {
-//   console.log(this.loginForm.value)
-//   var checked = this.loginForm.get('remember').value
-//   this.rememberMe(login,checked);
-//   if(this.loginForm.valid){
-//       console.log("Login Happens");
-//     //   localStorage.setItem("login data",this.loginForm.value);
-//       this.router.navigate(['/paclients']);
-//   }
-//  }
-
-onSubmit() {
-    //  this.router.navigateByUrl('calendar');
-     this.loginService.login(this.loginForm.value).subscribe( (response:any) => {
-      if(response.isUserLoggedIn){
-        console.log('logging in');
-        // this.router.navigateByUrl('/calendar')
-      }else{
-        // Swal.fire('Error!', response.error_message, 'warning');
-        console.log('error logging in');
-      }
-    })
+onSubmit(login) {
+  console.log(this.loginForm.value)
+  var checked = this.loginForm.get('remember').value
+  this.rememberMe(login,checked);
+  if(this.loginForm.valid){
+      console.log("Login Happens");
+    //   localStorage.setItem("login data",this.loginForm.value);
+      this.router.navigate(['/paclients']);
   }
+ }
+
+// onSubmit() {
+//     //  this.router.navigateByUrl('calendar');
+//      this.loginService.login(this.loginForm.value).subscribe( (response:any) => {
+//       if(response.isUserLoggedIn){
+//         console.log('logging in');
+//         // this.router.navigateByUrl('/calendar')
+//       }else{
+//         // Swal.fire('Error!', response.error_message, 'warning');
+//         console.log('error logging in');
+//       }
+//     })
+//   }
 
 
 rememberMe(login, checked) {

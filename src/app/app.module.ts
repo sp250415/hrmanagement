@@ -33,6 +33,7 @@ import { OrganizationProfileModule } from './main/org-profile/org-profile.module
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { HolidayModule } from './main/holidays/holidays.module';
 import { FaqModule } from './main/faq/faq.module';
+import { AddHolidayComponent } from './main/add-holiday/add-holiday.component';
 
 const appRoutes: Routes = [
     {
@@ -46,6 +47,7 @@ const appRoutes: Routes = [
         AppComponent,
         AddClientsComponent,
         PaUserEditComponent,
+        AddHolidayComponent,
     ],
     imports     : [
         MatButtonModule,

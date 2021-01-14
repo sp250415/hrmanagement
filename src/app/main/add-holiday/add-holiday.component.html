@@ -1,0 +1,62 @@
+<div>
+    <h1 align="center"><b>Add Holiday</b></h1>
+    <form name="holidayForm" [formGroup]="holidayForm">
+
+        <!-- Holiday Form -->
+        <mat-form-field appearance="outline" floatLabel="always" class="w-50-p">
+            <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="holDate" formControlName="date" placeholder="MM/DD/YYYY">
+                <mat-datepicker-toggle matSuffix [for]="holDate"></mat-datepicker-toggle>
+                <mat-datepicker #holDate></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always" class="w-75-p">
+            <mat-label>Day</mat-label>
+            <mat-select placeholder="Select Day" formControlName="day">
+                <mat-option value="Sunday">
+                    Sunday
+                </mat-option>
+                <mat-option value="Monday">
+                    Monday
+                </mat-option>
+                <mat-option value="Tuesday">
+                    Tuesday
+                </mat-option>
+                <mat-option value="Wednesday">
+                    Wednesday
+                </mat-option>
+                <mat-option value="Thursday">
+                    Thursday
+                </mat-option>
+                <mat-option value="Friday">
+                    Friday
+                </mat-option>
+                <mat-option value="Saturday">
+                    Saturday
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+            <mat-label>Particulars</mat-label>
+            <input matInput placeholder="Enter Particulars" name="particulars" formControlName="particulars" required>
+        </mat-form-field>
+
+        <div align="center">
+            <div class="spinner-wrapper" *ngIf="spinner">
+                <div class="spinner">
+                    <div class="inner">
+                        <div class="gap"></div>
+                        <div class="left">
+                            <div class="half-circle"></div>
+                        </div>
+                        <div class="right">
+                            <div class="half-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button mat-raised-button color="accent" [disabled]="holidayForm.invalid" (click)="addHolidays()">ADD</button>
+        </div>
+    </form>
+</div>
