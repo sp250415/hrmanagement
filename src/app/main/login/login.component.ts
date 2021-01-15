@@ -9,7 +9,7 @@ import { LoginService } from 'app/services/login.service'
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent{
+export class LoginComponent {
 
   loginForm: FormGroup;
   orgName: string;
@@ -21,32 +21,32 @@ export class LoginComponent{
   constructor(private _formBuilder: FormBuilder,
     private _fuseConfigService: FuseConfigService,
     private router: Router,
-    private loginService: LoginService) { 
+    private loginService: LoginService) {
     this._fuseConfigService.config = {
       layout: {
-          navbar   : {
-              hidden: true
-          },
-          toolbar  : {
-              hidden: true
-          },
-          footer   : {
-              hidden: true
-          },
-          sidepanel: {
-              hidden: true
-          }
+        navbar: {
+          hidden: true
+        },
+        toolbar: {
+          hidden: true
+        },
+        footer: {
+          hidden: true
+        },
+        sidepanel: {
+          hidden: true
+        }
       }
-  };
+    };
   }
 
- //OninIt
- ngOnInit(): void {
-  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-  //Add 'implements OnInit' to the class.
-  
-  this.loginForm = this._formBuilder.group({
-      username   : ['', [Validators.required]],
+  //OninIt
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+
+    this.loginForm = this._formBuilder.group({
+      username: ['', [Validators.required]],
       password: ['', Validators.required],
       remember: [''],
       orgName:['', Validators.required],
@@ -54,41 +54,41 @@ export class LoginComponent{
   });
 }
 
-onSubmit(login) {
-  console.log(this.loginForm.value)
-  var checked = this.loginForm.get('remember').value
-  this.rememberMe(login,checked);
+onSubmit() {
+  var checked = this.loginForm.get('remember').value;
+  this.rememberMe(checked);
   if(this.loginForm.valid){
-      console.log("Login Happens");
+    
     //   localStorage.setItem("login data",this.loginForm.value);
-      this.router.navigate(['/paclients']);
+
+    this.loginService.login(this.loginForm.value).subscribe(
+      (result:any) => {
+      if(result.success){
+        localStorage.setItem('token', JSON.stringify(result.token));
+        // this.router.navigate(['/pausers']);
+        this.router.navigate(['/paclients']);
+      }else{
+        console.log(result);
+      }
+      },
+      (error:any) => {
+        console.log(error);
+      })
+      
   }
  }
 
-// onSubmit() {
-//     //  this.router.navigateByUrl('calendar');
-//      this.loginService.login(this.loginForm.value).subscribe( (response:any) => {
-//       if(response.isUserLoggedIn){
-//         console.log('logging in');
-//         // this.router.navigateByUrl('/calendar')
-//       }else{
-//         // Swal.fire('Error!', response.error_message, 'warning');
-//         console.log('error logging in');
-//       }
-//     })
-//   }
 
-
-rememberMe(login, checked) {
-  if (checked == true) {
+  rememberMe(checked) {
+    if (checked == true) {
       console.log("Remember me checked")
-  }else{
+    } else {
       console.log("Not checked")
+    }
   }
-}
 
-routeToForgot(){
-  console.log("rout forget pass")
-}
+  routeToForgot() {
+    console.log("rout forget pass")
+  }
 
 }

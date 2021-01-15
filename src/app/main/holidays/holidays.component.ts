@@ -52,12 +52,12 @@ export class HolidaysComponent implements OnInit {
     this.getHolidays();
   }
 
-  addHoliday(element){
+  addHoliday(){
     const dialogRef: MatDialogRef<any> = this.dialog.open(AddHolidayComponent, {
         height: '65%',
         width: '50%'
     });
-    dialogRef.componentInstance.updateValue = element;
+    // dialogRef.componentInstance.updateValue = element;
     dialogRef.componentInstance.successResponse.subscribe((response:any)=>{
     dialogRef.close();
       switch(response){

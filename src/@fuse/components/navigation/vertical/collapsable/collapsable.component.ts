@@ -60,7 +60,7 @@ export class FuseNavVerticalCollapsableComponent implements OnInit, OnDestroy
                 takeUntil(this._unsubscribeAll)
             )
             .subscribe((event: NavigationEnd) => {
-
+                console.log(this.item)
                 // Check if the url can be found in
                 // one of the children of this item
                 if ( this.isUrlInChildren(this.item, event.urlAfterRedirects) )

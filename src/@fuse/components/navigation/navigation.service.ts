@@ -253,6 +253,7 @@ export class FuseNavigationService
      */
     getNavigationItem(id, navigation = null): any | boolean
     {
+        console.log(id, navigation)
         if ( !navigation )
         {
             navigation = this.getCurrentNavigation();
@@ -289,6 +290,7 @@ export class FuseNavigationService
      */
     getNavigationItemParent(id, navigation = null, parent = null): any
     {
+        console.log(id, navigation)
         if ( !navigation )
         {
             navigation = this.getCurrentNavigation();
@@ -324,6 +326,7 @@ export class FuseNavigationService
      */
     addNavigationItem(item, id): void
     {
+        console.log(item, id)
         // Get the current navigation
         const navigation: any[] = this.getCurrentNavigation();
 

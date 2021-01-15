@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
@@ -34,7 +34,7 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { HolidayModule } from './main/holidays/holidays.module';
 import { FaqModule } from './main/faq/faq.module';
 import { AddHolidayComponent } from './main/add-holiday/add-holiday.component';
-
+import { JwtInterceptor } from './_helper/jwt.interceptor';
 const appRoutes: Routes = [
     {
         path      : '**',
@@ -48,6 +48,9 @@ const appRoutes: Routes = [
         AddClientsComponent,
         PaUserEditComponent,
         AddHolidayComponent,
+    ],
+    providers   : [
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true },
     ],
     imports     : [
         MatButtonModule,
